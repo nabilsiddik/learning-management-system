@@ -1,0 +1,7 @@
+/** Tailwind Directives **/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  font-family: "Inter", sans-serif;
+}/*# sourceMappingURL=index.css.map */
