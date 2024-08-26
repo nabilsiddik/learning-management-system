@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import DisplayCourses from '../../Components/DisplayCourses/DisplayCourses'
 
 const Home = () => {
-  return (
-    <div>
 
+  return (
+    <div id='home_page' className='my-10'>
+      <DisplayCourses/>
     </div>
   )
 }

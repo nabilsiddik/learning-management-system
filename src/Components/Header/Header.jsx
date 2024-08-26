@@ -20,19 +20,19 @@ const Header = () => {
                     <ul className='flex items-center gap-5 text-white'>
                         <li><Link>
                             <span className='text-xl h-8 w-8 block bg-white rounded-full flex items-center justify-center text-black'>
-                                <i class="fa-solid fa-heart"></i>
+                                <i className="fa-solid fa-heart"></i>
                             </span>
                         </Link></li>
 
                         <li><Link>
                             <span className='text-xl h-8 w-8 block bg-white rounded-full flex items-center justify-center text-black'>
-                            <i class="fa-solid fa-cart-shopping"></i>
+                            <i className="fa-solid fa-cart-shopping"></i>
                             </span>
                         </Link></li>
 
                         <li><Link>
                             <span className='text-xl h-8 w-8 block bg-white rounded-full flex items-center justify-center text-black'>
-                            <i class="fa-solid fa-bell"></i>
+                            <i className="fa-solid fa-bell"></i>
                             </span>
                         </Link></li>
                     </ul>
