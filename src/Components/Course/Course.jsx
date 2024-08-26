@@ -1,15 +1,26 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Course = (props) => {
+
+  const shortDescription = (num, description) =>{
+    if(description.length > num){
+        return description.substring(0, num) + "..."
+    }
+    return description
+  }
+
   return (
     <div id='course'>
       <div className="card shadow-lg py-5 px-4">
         <div className="course_img">
-            <img className='w-full' src={props.image_url} alt={props.title} />
+            <Link to={`/courses/${props.id}`}>
+                <img className='w-full' src={props.image_url} alt={props.title} />
+            </Link>
         </div>
         <div className="course_info">
-            <h2 className='text-lg font-bold mt-2 mb-1'>{props.title}</h2>
-            <p>{props.description}</p>
+            <h2 className='text-xl font-bold mt-3 mb-2'>{props.title}</h2>
+            <p>{shortDescription(100, props.description)}</p>
             <div className="review_and_rating flex items-center gap-4 my-2">
                 <h3 className="text-md font-bold">{props.rating}</h3>
                 <ul className='flex items-center gap-2 text-yellow-600'>

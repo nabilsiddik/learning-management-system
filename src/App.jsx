@@ -5,6 +5,8 @@ import Footer from './Components/Footer/Footer'
 import Home from './Pages/Home/Home'
 import { useContext } from 'react'
 import { CourseContext } from './Context/CourseContext/CourseContext'
+import Courses from './Pages/Courses/Courses';
+import SingleCourse from './Pages/SingleCourse/SingleCourse';
 
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/courses' element={<Courses/>}/>
+        <Route path='/courses/:id' element={<SingleCourse/>}/>
       </Routes>
       <Footer />
     </BrowserRouter>

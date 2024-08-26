@@ -13,7 +13,8 @@ export const allCourses = [
         review: 318175,
         oldPrice: 74.99,
         newPrice: 9.99,
-        badge: "Bestseller"
+        badge: "Bestseller",
+        video_url: `https://www.youtube.com/embed/z0n1aQ3IxWI?si=A4iFZ7xbmfzR_QxF`
     },
 
     {
@@ -25,7 +26,8 @@ export const allCourses = [
         review: 318175,
         oldPrice: 74.99,
         newPrice: 9.99,
-        badge: "New"
+        badge: "New",
+        video_url: `https://www.youtube.com/embed/eILUmCJhl64?si=sCI63sorAb5_H392`
     },
 
     {
@@ -37,7 +39,8 @@ export const allCourses = [
         review: 318175,
         oldPrice: 74.99,
         newPrice: 9.99,
-        badge: "Bestseller"
+        badge: "Bestseller",
+        video_url: `https://www.youtube.com/embed/q8EevlEpQ2A?si=29PyttUsm8QYEy3c`
     },
 
     {
@@ -49,6 +52,7 @@ export const allCourses = [
         review: 318175,
         oldPrice: 74.99,
         newPrice: 9.99,
-        badge: "New"
+        badge: "New",
+        video_url: `https://www.youtube.com/embed/_uQrJ0TkZlc?si=RxWzQWbq3fiATK1h`
     },
 ]
