@@ -75,7 +75,7 @@ const Signup = () => {
 
             <input type="submit" value='Register' className='btn btn-lg bg-purple-600 text-white font-bold py-3 rounded-md' />
 
-            <p>Already have an account? <Link className='underline text-blue-700' to='/'>Login Now</Link></p>
+            <p>Already have an account? <Link className='underline text-blue-700' to='/login'>Login Now</Link></p>
           </form>
         </div>
       </div>
