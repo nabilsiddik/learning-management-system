@@ -1,9 +1,25 @@
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import React, { useState } from 'react'
+import { auth } from '../firebase'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
 
 const Login = () => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const handleSubmit = async (e) => {
+      e.preventDefault()
+      try{
+        await signInWithEmailAndPassword(auth, email, password)
+        window.location.href="/home"
+      }catch(error){
+        toast.error(error.message, {
+          position: "top-center"
+        });
+      }
+  }
 
 
   return (
@@ -12,7 +28,7 @@ const Login = () => {
         <h1 className='text-5xl text-center'>Login</h1>
 
         <div className="login_form mt-10 shadow-2xl max-w-[60%] mx-auto py-10 rounded-md">
-          <form className='flex flex-col gap-5 w-[80%] mx-auto'>
+          <form onSubmit={handleSubmit} className='flex flex-col gap-5 w-[80%] mx-auto'>
             <input type="email"
               placeholder='Email'
               value={email}
@@ -30,6 +46,8 @@ const Login = () => {
           </form>
         </div>
       </div>
+
+      <ToastContainer/>
     </div>
   )
 }
