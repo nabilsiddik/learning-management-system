@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { auth } from '../firebase'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -13,7 +14,7 @@ const Login = () => {
       e.preventDefault()
       try{
         await signInWithEmailAndPassword(auth, email, password)
-        window.location.href="/home"
+        window.location.href="/"
       }catch(error){
         toast.error(error.message, {
           position: "top-center"
@@ -27,7 +28,7 @@ const Login = () => {
       <div className="container mx-auto">
         <h1 className='text-5xl text-center'>Login</h1>
 
-        <div className="login_form mt-10 shadow-2xl max-w-[60%] mx-auto py-10 rounded-md">
+        <div className="login_form mt-10 shadow-2xl md:max-w-[60%] lg:max-w-[40%] max-w-[80%] mx-auto py-10 rounded-md">
           <form onSubmit={handleSubmit} className='flex flex-col gap-5 w-[80%] mx-auto'>
             <input type="email"
               placeholder='Email'
@@ -43,6 +44,8 @@ const Login = () => {
             />
 
             <input type="submit" value='Login' className='btn btn-lg bg-purple-600 text-white font-bold py-3 rounded-md' />
+            
+            <p>Don't have an account? <Link className='underline text-blue-700' to='register'>Register Now</Link></p>
           </form>
         </div>
       </div>

@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
+import { Link } from 'react-router-dom';
 
 
 const Signup = () => {
@@ -43,7 +44,7 @@ const Signup = () => {
       <div className="container mx-auto">
         <h1 className='text-5xl text-center'>Register</h1>
 
-        <div className="login_form mt-10 shadow-2xl max-w-[60%] mx-auto py-10 rounded-md">
+        <div className="login_form mt-10 shadow-2xl md:max-w-[60%] lg:max-w-[40%] max-w-[80%] mx-auto py-10 rounded-md">
           <form onSubmit={handleRegister} className='flex flex-col gap-5 w-[80%] mx-auto'>
           <input type="text"
               placeholder='First Name'
@@ -73,6 +74,8 @@ const Signup = () => {
             />
 
             <input type="submit" value='Register' className='btn btn-lg bg-purple-600 text-white font-bold py-3 rounded-md' />
+
+            <p>Already have an account? <Link className='underline text-blue-700' to='/'>Login Now</Link></p>
           </form>
         </div>
       </div>
