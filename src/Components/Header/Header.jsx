@@ -68,11 +68,12 @@ const Header = () => {
             <div className="container mx-auto  flex justify-center">
                 <nav>
                     <ul className='flex items-center gap-10'>
-                        <li><Link>Home</Link></li>
+                        <li><Link to='/'>Home</Link></li>
                         <li><Link>About</Link></li>
                         <li><Link>Courses</Link></li>
                         <li><Link>Categories</Link></li>
                         <li><Link>Contact</Link></li>
+                        <li><Link to='/instructor'>Instructor</Link></li>
                     </ul>
                 </nav>
             </div>

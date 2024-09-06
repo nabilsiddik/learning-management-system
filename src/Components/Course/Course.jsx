@@ -15,7 +15,7 @@ const Course = (props) => {
       <div className="card shadow-lg py-5 px-4">
         <div className="course_img">
             <Link to={`/courses/${props.id}`}>
-                <img className='w-full' src={props.image_url} alt={props.title} />
+                <img className='w-full' src={props.image_path} alt={props.title} />
             </Link>
         </div>
         <div className="course_info">
@@ -33,9 +33,9 @@ const Course = (props) => {
                 <p>({props.review})</p>
             </div>
             <div className="prices flex items-center gap-3">
-                <h3 className='text-md font-bold'>${props.newPrice}</h3>
+                <h3 className='text-md font-bold'>${props.new_price}</h3>
                 <del>
-                    <h3 className='text-md'>${props.oldPrice}</h3>
+                    <h3 className='text-md'>${props.old_price}</h3>
                 </del>
             </div>
             <div className="badge py-2 px-3 bg-yellow-200 font-bold rounded-sm inline-block mt-2">

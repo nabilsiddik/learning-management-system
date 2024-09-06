@@ -9,6 +9,7 @@ import Courses from './Pages/Courses/Courses';
 import SingleCourse from './Pages/SingleCourse/SingleCourse';
 import Login from './Components/Login/Login';
 import Signup from './Components/Register/Signup';
+import Instructor from './Pages/Instructor/instructor'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Signup/>} />
         <Route path='/home' element={<Home/>} />
+        <Route path='/instructor' element={<Instructor/>} />
         <Route path='/courses' element={<Courses/>}/>
         <Route path='/courses/:id' element={<SingleCourse/>}/>
       </Routes>

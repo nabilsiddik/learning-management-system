@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext/UserContext';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 
 const Login = () => {
@@ -16,8 +17,24 @@ const Login = () => {
   const handleSubmit = async (e) => {
       e.preventDefault()
       try{
-        await signInWithEmailAndPassword(auth, email, password)
-        window.location.href="/"
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        // Fetch the user's role
+        const firestore = getFirestore();
+        const userDoc = await getDoc(doc(firestore, 'users', user.uid));
+        if(userDoc.exists()){
+          const userData = userDoc.data();
+
+          if (userData && userData.role === 'instructor') {
+            window.location.assign('/instructor'); // Use assign to ensure navigation
+          } else {
+            window.location.assign('/'); // Use assign to ensure navigation
+          }
+        }else{
+          toast.error('User data not found. Please contact support.', {
+            position: "top-center"
+          });
+        }
       }catch(error){
         toast.error(error.message, {
           position: "top-center"
@@ -48,7 +65,7 @@ const Login = () => {
 
             <input type="submit" value='Login' className='btn btn-lg bg-purple-600 text-white font-bold py-3 rounded-md' />
             
-            <p>Don't have an account? <Link to='register' className='underline text-blue-700'>Register Now</Link></p>
+            <p>Don't have an account? <Link to='/register' className='underline text-blue-700'>Register Now</Link></p>
           </form>
         </div>
       </div>
