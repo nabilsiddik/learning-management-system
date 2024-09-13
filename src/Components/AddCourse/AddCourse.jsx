@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useContext, useState } from 'react'
+import { CourseContext } from '../../Context/CourseContext/CourseContext'
 
 const AddCourse = () => {
 
+  const {loadCourses} = useContext(CourseContext)
     
   const [course, setCourse] = useState({
     title: "",
@@ -9,10 +12,11 @@ const AddCourse = () => {
     old_price: "",
     new_price: "",
     badge: "",
+    category: "",
     image_path: ""
   })
 
-  const {title, description, old_price, new_price, badge, image_path} = course
+  const {title, description, old_price, new_price, badge, category, image_path} = course
 
   const onChangeInput = (e) => {
     setCourse(prevCourse => ({
@@ -24,6 +28,9 @@ const AddCourse = () => {
   const handleAddCourse = async (e) => {
     e.preventDefault()
     await axios.post("http://localhost:8080/course", course)
+
+    loadCourses()
+
   }
 
   return (
@@ -79,6 +86,25 @@ const AddCourse = () => {
                 onChange={(e) => onChangeInput(e)}
                 className='border rounded-md py-4 px-5 focus:outline-none w-full'
               />
+            </div>
+
+            <div className="input-group">
+              <label className="block mb-3" htmlFor="Registration type">Select Course Category</label>
+              <select
+                name='category'
+                className='focus:outline-none border border-solid border-gray py-4 px-4 rounded-md w-full'
+                value={category}  // Step 3: Set value
+                onChange={(e) => onChangeInput(e)}
+              >
+                  <option value='Web Development'>Web Development</option>
+                  <option value='Game Development'>Game Development</option>
+                  <option value='Android Development'>Android Development</option>
+                  <option value='Graphic Design'>Graphic Design</option>
+                  <option value='Digital Marketing'>Digital Marketing</option>
+                  <option value='Video Editing'>Video Editing</option>
+                  <option value='3D Animation'>3D Animation</option>
+                  <option value='Voice Over'>Voice Over</option>
+              </select>
             </div>
 
             <div className="input-group">

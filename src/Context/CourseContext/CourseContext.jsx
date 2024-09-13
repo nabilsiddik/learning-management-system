@@ -11,7 +11,6 @@ const CourseContextProvider = ({children}) => {
     const result = await axios.get("http://localhost:8080/courses")
     const courses = result.data
     setAllCourses(courses)
-    console.log(allCourses)
   }
 
   useEffect(()=>{
